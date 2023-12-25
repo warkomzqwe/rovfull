@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Aquarov Report</string>
+    <string name="website_domain">192.168.2.2</string>
+    <string name="website_url">http://192.168.2.2:5000</string>
+</resources>

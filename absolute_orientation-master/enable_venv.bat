@@ -1,0 +1,1 @@
+start cmd /K "call ./venv/Scripts/activate.bat"
