@@ -1,0 +1,2 @@
+%: Makefile
+	$(MAKE) -C docs $@

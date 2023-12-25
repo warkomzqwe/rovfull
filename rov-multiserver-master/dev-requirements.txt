@@ -1,0 +1,10 @@
+pytest
+coverage<5.0
+pytest-cov
+pytest-repeat
+pytest-asyncio
+bumpversion
+sphinx
+sphinx-rtd-theme
+autoapi
+asynctest
