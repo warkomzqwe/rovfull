@@ -1,0 +1,48 @@
+@startuml
+queue "Local TCP/IP communication bus" as tcp #cyan
+node "CRAB ROV" as crab #yellow
+node  "PC Piloto" as pc #lightgrey
+node "SBC Canopy" as orangepi #orange
+
+
+'Crab software
+
+card crab_card [
+  insy_launcher
+  insy_video
+
+  <b>crab_subsystem_middleware
+  rov_middleware_service
+
+  <b>crab_rov_services
+  cam_servo_service
+  imu_service
+  depth_service
+
+  <b>insy_rov_services
+  hourmeter  
+]
+
+'PC software
+
+card pc_card [
+  crab UI
+]
+
+card canopy_card [
+  <b>crab_subsystem_middleware
+  ground_middleware_service
+  
+  <b>crab_ground_services
+  hydraulic_pressure_service
+]
+
+tcp <--> crab
+tcp <--> pc
+tcp <--> orangepi
+
+crab --> crab_card
+pc --> pc_card
+orangepi --> canopy_card
+
+@enduml

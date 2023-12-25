@@ -1,0 +1,504 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>CRAB System</title>
+	<meta name='Generator' content='Zim 0.74.3'>
+	<style type='text/css'>
+		a          { text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #4e9a06; margin-bottom: 0 }
+		h2         { color: #4e9a06; margin-bottom: 0 }
+		h3         { color: #4e9a06; margin-bottom: 0 }
+		h4         { color: #4e9a06; margin-bottom: 0 }
+		h5         { color: #4e9a06; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+	</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class='header'>
+	[ <span class='insen'>Prev</span> ]
+
+	[ <span class='insen'>Index</span> ]
+
+	[ <span class='insen'>Next</span> ]
+</div>
+
+<hr />
+
+<!-- Wiki content -->
+
+<div class='pages'>
+	<div class='heading'>
+	<h1>CRAB System <a name='CRAB System'></a></h1>
+	</div>
+
+	<div class='content'>
+	<p>
+Created martes 29 agosto 2023
+</p>
+
+<p>
+Se considera despliegue de software en 3 lugares:
+</p>
+
+<p>
+<ul>
+<li><a href="#CRAB System:CrabROV" title="+CrabROV" class="page">+CrabROV</a> </li>
+<li><a href="#CRAB System:CanopySBC" title="+CanopySBC" class="page">+CanopySBC</a></li>
+<li><a href="#CRAB System:CasetaPilotoPC" title="+CasetaPilotoPC" class="page">+CasetaPilotoPC</a></li>
+</ul>
+</p>
+
+<br>
+
+<h2>Arquitectura de red<a id="arquitectura-de-red" class="h_anchor"></a></h2>
+
+<br>
+
+<div class="zim-object">
+<pre><code class="ini">CrabRov=192.168.2.2
+CanopySBC=192.168.2.3
+CasetaPC=192.168.2.4
+</code></pre>
+</div>
+
+<br>
+
+<h2>Arquitectura de software<a id="arquitectura-de-software" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+<img src="./CRAB_System_files/CRAB_System/umldiagram.png">
+</p>
+
+	</div>
+
+	<br />
+
+	<div class='page-footer'>
+
+			<b>Attachments:</b>
+			<table>
+
+			<tr><td><a href='./CRAB_System_files/CRAB_System/umldiagram.png'>umldiagram.png</a></td><td>&nbsp;</td><td>30.7kb</td></tr>
+
+
+			<tr><td><a href='./CRAB_System_files/CRAB_System/umldiagram.puml'>umldiagram.puml</a></td><td>&nbsp;</td><td>764b</td></tr>
+
+			</table>
+	</div>
+
+	<hr />
+
+	<div class='heading'>
+	<h1>CanopySBC <a name='CRAB System:CanopySBC'></a></h1>
+	</div>
+
+	<div class='content'>
+	<p>
+Created martes 29 agosto 2023
+</p>
+
+<p>
+Despliegue usando Orange Pi 3 LTS:
+</p>
+
+<p>
+<ul>
+<li><a href="http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/orange-pi-3-LTS.html" title="Imagen de Orange Pi" class="http">Imagen de Orange Pi</a></li>
+<li><a href="https://jumptuck.com/blog/2023-02-13-install-linux-orange-pi-3-lts-emmc/" title="Carga de imagen a memoria eMMC interna" class="https">Carga de imagen a memoria eMMC interna</a></li>
+</ul>
+</p>
+
+<h2>Desde imagen en eMMC:<a id="desde-imagen-en-emmc" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+Usuarios por defecto: <tt>root </tt>Password: <tt>orangepi.</tt>
+</p>
+
+<p>
+La carga de imagen a la eMMC se resume a usar una SD en el slot de la placa y correr el comando nand-sata-install.
+</p>
+
+<p>
+Pasos relevantes a seguir:<br>
+<ul>
+<li>Configurar wifi usando el comando <tt>orangepi-config</tt></li>
+<li>Acceder por ssh con usuario root</li>
+<li>Crear usuario <b>insytech</b> con clave <b>1234 </b>con <tt>adduser insytech</tt></li>
+<li>Agregar usuario a grupo sudo con: <tt>usermod -aG sudo insytech</tt></li>
+<li>Salir de ssh y volver ingresar con el usuario <b>insytech</b></li>
+</ul>
+</p>
+
+<h2>Preparar sistema<a id="preparar-sistema" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+Configurar ip estática <tt>192.168.2.3 con sudo nano /etc/network/interfaces</tt><br>
+Agregar al final del archivo:
+</p>
+
+<pre>
+auto eth0
+iface eth0 inet static
+  address 192.168.2.3
+  netmask 255.255.255.0
+</pre>
+
+<br>
+
+<p>
+Configurar grupos para el usuario insytech:
+</p>
+<pre>
+sudo usermod -a -G dialout $USER
+sudo usermod -a -G tty $USER
+sudo usermod -a -G i2c $USER
+
+</pre>
+<h3>Instalar Docker<a id="instalar-docker" class="h_anchor"></a></h3>
+
+<br>
+
+<p>
+Seguimos la <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04" title="guía de digitalocean" class="https">guía de digitalocean</a> (basta con los pasos 1 y 2).
+</p>
+
+<p>
+Se puede probar que todo está andando bien con el commando:
+</p>
+
+<p>
+<tt>docker run hello-world</tt>
+</p>
+
+<h2>Carga de software<a id="carga-de-software" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+La placa orange pi debe levantar dos módulos de software:
+</p>
+
+<p>
+<ol type="1" start="1">
+<li>microROS agent: para comunicación con el firmware canopy alpha</li>
+<li>hidraulic_pressure_service (parte del paquete crab_ground_services): para levantar reporte de presión hidráulica al sistema</li>
+</ol>
+</p>
+
+<p>
+Utilizando docker el agente microROS se instala en un solo comando:
+</p>
+
+<p>
+<tt>docker pull microros/micro-ros-agent:humble</tt>
+</p>
+
+<p>
+Para el software hidraulic_pressure_service  se deben seguir las instrucciones del repositorio <a href="http://gitlab.telemcloud.cl/aquarovdevelopment/crab_ground_services" title="crab_ground_services" class="http">crab_ground_services</a>.
+</p>
+
+<br>
+
+<h2>Inicio automático<a id="inicio-automático" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+Para producción todo el software debe iniciarse de forma automática. Se deja una copia del script lanzador que se debe copiar en <tt>~/bin/insy_launcher.sh.</tt>
+</p>
+
+<p>
+Es recomendable reemplazar el valor de <tt>/dev/ttyACM0 </tt>por un puerto físico en caso de utilizarse más de un MCU con microROS en la placa orange pi.
+</p>
+
+<div class="zim-object">
+<pre><code class="sh">#!/bin/bash
+
+_ifconfig=/usr/sbin/ifconfig
+insy_bin=/home/insytech/bin
+canopy_alpha_com_port=/dev/ttyACM0
+
+
+launch_programs() {
+    echo "Launching Insy Software..."
+    screen -S microros-agent -dm bash -c "docker run -it --rm --device=$canopy_alpha_com_port --net=host microros/micro-ros-agent:humble serial --dev $canopy_alpha_com_port baudrate=115200; exec sh"
+    screen -S hydraulic-pressure-service -dm bash -c "$insy_bin/hydraulic_pressure_service; exec sh"
+}
+
+
+# Waiting for dockerd to start
+while ! docker info &gt; /dev/null 2&gt;&amp;1; do
+  echo "Waiting for dockerd to start..."
+  sleep 1
+done
+echo "Dockerd started"
+
+# Waiting for eth0 network interface
+while ! $_ifconfig eth0 | grep "inet 192.168.2.3" &gt; /dev/null; do
+   echo "Interface eth0 not running"           
+   sleep 1
+done
+
+launch_programs
+
+
+
+</code></pre>
+</div>
+
+<br>
+
+<p>
+Registrar el lanzador usando <tt>crontab -e.</tt>
+</p>
+
+<p>
+<tt>@reboot screen -S insy-launcher -dm bash -c ". /home/insytech/bin/insy_launcher.sh; exec sh"</tt>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+
+	</div>
+
+	<br />
+
+	<div class='page-footer'>
+		<b>Backlinks:</b>
+
+		<a href='#CRAB System'>CRAB System</a>
+
+		<br /><br />
+
+	</div>
+
+	<hr />
+
+	<div class='heading'>
+	<h1>CasetaPilotoPC <a name='CRAB System:CasetaPilotoPC'></a></h1>
+	</div>
+
+	<div class='content'>
+	<p>
+Created miércoles 06 septiembre 2023
+</p>
+
+<h2>Preparar máquina<a id="preparar-máquina" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+Se considera una máquina <b>Intel® NUC Kit NUC7CJYHN.</b>
+</p>
+
+<p>
+Formatear una instalación limpia con <b>Linux Mint Mate 21.2 </b>con los siguiente parámetros: <br>
+<ul>
+<li>Usuario <b>insytech </b></li>
+<li>Password <b>1234</b></li>
+<li>Hostname <b>crab-pc-{unixtimestamp} </b>(Se puede obtener de ese <a href="https://www.epochconverter.com/hex" title="link" class="https">link</a> en formato hex)</li>
+</ul>
+</p>
+
+<p>
+Luego de instalar y arrancar la máquina:<br>
+<ul>
+<li>Agregar una red wifi local con acceso a internet</li>
+<li>Ejecutar <tt>sudo apt update </tt>y <tt>sudo apt install openssh-server -y</tt></li>
+<li>Desactivar salvapantallas y modo sleep automático.</li>
+</ul>
+</p>
+
+<p>
+Con esto se puede acceder a la máquina desde la red local por ssh.
+</p>
+
+<h2>Ip estática<a id="ip-estática" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+Asignar ip estática con
+</p>
+
+<pre>
+sudo apt install ifupdown -y
+sudo nano /etc/network/interfaces
+</pre>
+
+<p>
+Agregar:
+</p>
+
+<pre>
+auto eno1
+iface eno1 inet static
+  address 192.168.2.4
+  netmask 255.255.255.0
+</pre>
+
+<p>
+Reiniciar y verificar ip estática en eth0/eno1.
+</p>
+
+<h2>Instalación de software<a id="instalación-de-software" class="h_anchor"></a></h2>
+
+<br>
+
+<p>
+Actualizar sistema,<br>
+<tt>sudo apt update &amp;&amp; sudo apt upgrade</tt>
+</p>
+
+<p>
+Instalar ROS2 Humble (<a href="https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html" title="guía oficial" class="https">guía oficial</a>),
+</p>
+<pre>
+sudo -v
+
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+
+sudo apt update &amp;&amp; sudo apt install curl -y
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release &amp;&amp; echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list &gt; /dev/null
+
+sudo apt update
+
+sudo apt install ros-humble-ros-base -y
+</pre>
+
+<p>
+Instalar paquete <b>insy_msgs</b> para ROS2,
+</p>
+
+<pre>
+sudo -v
+
+# Load ros2 environment
+. /opt/ros/humble/local_setup.sh
+
+sudo apt install git python3-colcon-common-extensions build-essential -y
+
+cd ~ &amp;&amp; mkdir -p ros_ws &amp;&amp; cd ros_ws
+git clone http://gitlab.telemcloud.cl/aquarovdevelopment/insy_msgs.git
+colcon build
+ 
+</pre>
+<p>
+Instalar CRABUI según las indicaciones del repositorio <a href="http://gitlab.telemcloud.cl/aquarovdevelopment/crabui." title="http://gitlab.telemcloud.cl/aquarovdevelopment/crabui." class="http">http://gitlab.telemcloud.cl/aquarovdevelopment/crabui.</a>
+</p>
+
+<p>
+Dado que el programa CRABUI requiere de un ambiente ROS2 para su ejecución, generaremos un script para un lanzam iento más fácil. Crear el siguiente archivo en <a href="file:///home/nhasbun/bin/crabui" title="~/bin/crabui" class="file"><tt>~/bin/crabui</tt></a> y dar permisos de ejecución con <tt>chmod +x</tt>:
+</p>
+
+<pre>
+#!/bin/bash
+
+source /opt/ros/humble/local_setup.sh
+source /home/insytech/ros_ws/install/local_setup.sh
+/home/insytech/crabui/venv/bin/crabui
+</pre>
+
+<h2>Despliegue automático<a id="despliegue-automático" class="h_anchor"></a></h2>
+
+<p>
+Para producción es necesario el despliegue automático de CRABUI. Para esto es necesario entrar en la interfaz gráfica del PC en la aplicación <b>startup applications.</b>
+</p>
+
+<p>
+Crear un lanzador de nombre <b>crabui </b>que ejecute <tt>/home/insytech/bin/crabui</tt>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+	</div>
+
+	<br />
+
+	<div class='page-footer'>
+		<b>Backlinks:</b>
+
+		<a href='#CRAB System'>CRAB System</a>
+
+		<br /><br />
+
+	</div>
+
+	<hr />
+
+	<div class='heading'>
+	<h1>CrabROV <a name='CRAB System:CrabROV'></a></h1>
+	</div>
+
+	<div class='content'>
+	<p>
+Created jueves 07 septiembre 2023
+</p>
+
+<p>
+Instrucciones de despliegue para la Jetson Nano que corre sobre el ROV están en su propio apartado en el repositorio:<br>
+<a href="http://gitlab.telemcloud.cl/aquarovdevelopment/insy_deployment_notes" title="http://gitlab.telemcloud.cl/aquarovdevelopment/insy_deployment_notes" class="http">http://gitlab.telemcloud.cl/aquarovdevelopment/insy_deployment_notes</a>
+</p>
+
+	</div>
+
+	<br />
+
+	<div class='page-footer'>
+		<b>Backlinks:</b>
+
+		<a href='#CRAB System'>CRAB System</a>
+
+		<br /><br />
+
+	</div>
+
+	
+
+</div>
+
+</body>
+</html>
