@@ -1,0 +1,1 @@
+add_executable(led_calculator_test test/led_calculator_test.cpp)
